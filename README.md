@@ -5,7 +5,7 @@ jps를 활용한 스프링 부트 웹 애플리케이션 개발 예제
 1. Project:
 	- Gradle Project
 	- Language: Java 11
-	- Spring Boot: 2.6.5
+	- Spring Boot: 2.6.6
 2.  Dependencies
 	- SpringWeb
 	- Thymeleaf
