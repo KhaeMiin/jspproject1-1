@@ -1,6 +1,11 @@
-package japbook.jpashop;
+package japbook.jpashop.domain;
 
-import javax.persistence.Entity;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * -   @Entity: 테이블에 대응되는 도메인 클래스를 의미, JPA가 동작할 때, 데이터를 다루는 작업 단위이기도 함
@@ -9,7 +14,19 @@ import javax.persistence.Entity;
  * -   @GeneratedValue: Primary Key 컬럼의 데이터를 삽입할 때, 사용할 전략,  **GenerationType.IDENTITY**로 지정 시 PK 생성 전략을 데이터베이스에 위임
  * -   @Enumerated: Enum 타입을 사용시 지정
  */
-//@Entity
+@Entity
+@Getter @Setter
 public class Member {
 
+    @Id @GeneratedValue
+    @Column(name = "member_id")
+    private Long id;
+
+    private String name;
+
+    @Embedded
+    private Address address;
+
+    @OneToMany(mappedBy = "member")
+    private List<Order> orders = new ArrayList<>();
 }
